@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>sandbox-transition</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .image {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all 1s;
+        -moz-transition: all 1s;
+        -ms-transition: all 1s;
+        -o-transition: all 1s;
+        transition: all 1s;
+        color: #666666;
+      }
+      .image.first {
+        z-index: 5;
+        background-image: url("./kyoto_1.jpg");
+        opacity: 1;
+      }
+      .image.first.action {
+        opacity: 0;
+      }
+      .image.second {
+        z-index: 4;
+        background-image: url("./kyoto_2.jpg");
+        opacity: 1;
+      }
+      .circle {
+        z-index: 6;
+        position: fixed;
+        top: 200px;
+        left: 200px;
+        width: 100px;
+        height: 100px;
+        border: solid 1px #ffffff;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+      }
+      a {
+        text-decoration: none;
+      }
+
+      .license {
+        background: white;
+        opacity: 0.8;
+        padding: 10px;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+      }
+
+    </style>
+  </head>
+  <body id="container">
+    <div id="first" class="image first">
+      <p class="license">
+        【京都府 久美浜湾】、経済産業省、<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">クリエイティブ・コモンズ・ライセンス 表示4.0 国際</a>
+      </p>
+    </div>
+    <div id="second" class="image second">
+      <p class="license">
+        【沖縄県 平久保崎】、経済産業省、<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">クリエイティブ・コモンズ・ライセンス 表示4.0 国際</a>
+      </p>
+    </div>
+    <div id="target" class="circle">
+    </div>
+    <script>
+      var target = document.getElementById('target'),
+        first = document.getElementById('first');
+
+      target.addEventListener('mouseover', function(){
+        first.classList.toggle('action');
+      });
+      target.addEventListener('mouseout', function(){
+        first.classList.toggle('action');
+      });
+    </script>
+  </body>
+</html>
